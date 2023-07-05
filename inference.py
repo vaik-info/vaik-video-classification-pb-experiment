@@ -26,7 +26,7 @@ def main(input_saved_model_dir_path, input_classes_path, input_video_dir_path, o
         video = imageio.get_reader(video_path,  'ffmpeg')
         # inference
         start = time.time()
-        output, raw_pred = model.inference([frame for frame in video][::4])
+        output, raw_pred = model.inference([frame for frame in video])
         end = time.time()
         total_inference_time += (end - start)
         # dump
