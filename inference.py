@@ -44,8 +44,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
     parser.add_argument('--input_saved_model_dir_path', type=str, default='~/.video-classification-pb-trainer/output_model/2023-07-05-12-06-57/step-1000_batch-8_epoch-5_loss_0.1981_sparse_categorical_accuracy_0.9427_val_loss_1.1117_val_sparse_categorical_accuracy_0.7121')
     parser.add_argument('--input_classes_path', type=str, default='~/.vaik-utc101-video-classification-dataset/ucf101_labels.txt')
-    parser.add_argument('--input_video_dir_path', type=str, default='~/.vaik-utc101-video-classification-dataset/train')
-    parser.add_argument('--output_json_dir_path', type=str, default='~/.vaik-video-classification-pb-experiment/train_inf')
+    parser.add_argument('--input_video_dir_path', type=str, default='~/.vaik-utc101-video-classification-dataset/test')
+    parser.add_argument('--output_json_dir_path', type=str, default='~/.vaik-video-classification-pb-experiment/test_inf')
     args = parser.parse_args()
 
     args.input_saved_model_dir_path = os.path.expanduser(args.input_saved_model_dir_path)
