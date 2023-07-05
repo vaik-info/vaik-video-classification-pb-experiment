@@ -113,7 +113,8 @@ python inference.py --input_saved_model_dir_path '~/.vaik-video-classification-p
 ### Calc ACC
 
 ```shell
-python calc_top3_acc.py --input_json_dir_path '~/.vaik-video-classification-pb-experiment/test_inf' \
+python calc_topk_acc.py --top_k 3 \
+                --input_json_dir_path '~/.vaik-video-classification-pb-experiment/test_inf' \
                 --input_classes_path '~/.vaik-utc101-video-classification-dataset_tfrecords/train/ucf101_labels.txt'
 ```
 
