@@ -20,14 +20,13 @@ def main(input_saved_model_dir_path, input_classes_path, input_video_dir_path, o
     video_path_list = []
     for files in types:
         video_path_list.extend(glob.glob(os.path.join(input_video_dir_path, '*', files), recursive=True))
-
     total_inference_time = 0
     for video_path in tqdm(video_path_list):
         # read
         video = imageio.get_reader(video_path,  'ffmpeg')
         # inference
         start = time.time()
-        output, raw_pred = model.inference([frame for frame in video])
+        output, raw_pred = model.inference([frame for frame in video][::4])
         end = time.time()
         total_inference_time += (end - start)
         # dump
@@ -43,10 +42,10 @@ def main(input_saved_model_dir_path, input_classes_path, input_video_dir_path, o
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
-    parser.add_argument('--input_saved_model_dir_path', type=str, default='~/.vaik-video-classification-pb-trainer/output_model/2023-07-05-10-34-29/step-1000_batch-8_epoch-10_loss_0.5479_sparse_categorical_accuracy_0.8443_val_loss_1.7989_val_sparse_categorical_accuracy_0.5060')
-    parser.add_argument('--input_classes_path', type=str, default='~/.vaik-utc101-video-classification-dataset_tfrecords/train/ucf101_labels.txt')
-    parser.add_argument('--input_video_dir_path', type=str, default='~/.vaik-utc101-video-classification-dataset/test')
-    parser.add_argument('--output_json_dir_path', type=str, default='~/.vaik-video-classification-pb-experiment/test_inf')
+    parser.add_argument('--input_saved_model_dir_path', type=str, default='~/.video-classification-pb-trainer/output_model/2023-07-05-12-06-57/step-1000_batch-8_epoch-5_loss_0.1981_sparse_categorical_accuracy_0.9427_val_loss_1.1117_val_sparse_categorical_accuracy_0.7121')
+    parser.add_argument('--input_classes_path', type=str, default='~/.vaik-utc101-video-classification-dataset/ucf101_labels.txt')
+    parser.add_argument('--input_video_dir_path', type=str, default='~/.vaik-utc101-video-classification-dataset/train')
+    parser.add_argument('--output_json_dir_path', type=str, default='~/.vaik-video-classification-pb-experiment/train_inf')
     args = parser.parse_args()
 
     args.input_saved_model_dir_path = os.path.expanduser(args.input_saved_model_dir_path)

@@ -1,5 +1,5 @@
 # vaik-video-classification-pb-experiment
-Create json file by video classification model. Calc ACC.
+Create json file by video classification model. Calc Top 3 ACC.
 
 ## Install
 
@@ -113,7 +113,7 @@ python inference.py --input_saved_model_dir_path '~/.vaik-video-classification-p
 ### Calc ACC
 
 ```shell
-python calc_acc.py --input_json_dir_path '~/.vaik-video-classification-pb-experiment/test_inf' \
+python calc_top3_acc.py --input_json_dir_path '~/.vaik-video-classification-pb-experiment/test_inf' \
                 --input_classes_path '~/.vaik-utc101-video-classification-dataset_tfrecords/train/ucf101_labels.txt'
 ```
 
