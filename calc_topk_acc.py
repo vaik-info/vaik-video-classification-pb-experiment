@@ -42,7 +42,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
     parser.add_argument('--top_k', type=int, default=3)
     parser.add_argument('--input_json_dir_path', type=str, default='~/.vaik-video-classification-pb-experiment/test_inf')
-    parser.add_argument('--input_classes_path', type=str, default='~/.vaik-utc101-video-classification-dataset/ucf101_labels.txt')
+    parser.add_argument('--input_classes_path', type=str, default='~/.vaik-utc101-video-classification-dataset/sub_ucf101_labels.txt')
     args = parser.parse_args()
 
     args.input_json_dir_path = os.path.expanduser(args.input_json_dir_path)
