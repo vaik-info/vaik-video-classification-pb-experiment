@@ -121,36 +121,20 @@ python calc_topk_acc.py --top_k 3 \
 #### Output
 
 ``` text
-                   precision    recall  f1-score   support
+               precision    recall  f1-score   support
 
-   ApplyEyeMakeup     0.5000    0.0227    0.0435        44
-    ApplyLipstick     0.0000    0.0000    0.0000        32
-          Archery     0.1818    0.0488    0.0769        41
-     BabyCrawling     0.1739    0.1143    0.1379        35
-      BalanceBeam     0.4706    0.5161    0.4923        31
-     BandMarching     0.7500    0.3488    0.4762        43
-    BaseballPitch     0.7000    0.1628    0.2642        43
-       Basketball     0.6216    0.6571    0.6389        35
-   BasketballDunk     0.8261    0.5135    0.6333        37
-       BenchPress     0.8750    0.1458    0.2500        48
-           Biking     0.4211    0.2105    0.2807        38
-        Billiards     1.0000    0.4250    0.5965        40
-      BlowDryHair     0.3333    0.2368    0.2769        38
-   BlowingCandles     0.1029    0.6364    0.1772        33
- BodyWeightSquats     0.0000    0.0000    0.0000        30
-          Bowling     0.4038    0.4884    0.4421        43
-BoxingPunchingBag     0.8750    0.1429    0.2456        49
-   BoxingSpeedBag     0.5000    0.0270    0.0513        37
-     BreastStroke     0.8333    0.1786    0.2941        28
-    BrushingTeeth     0.1667    0.0556    0.0833        36
-     CleanAndJerk     0.5000    0.0303    0.0571        33
-      CliffDiving     0.0816    0.7949    0.1480        39
-   CricketBowling     0.4444    0.2222    0.2963        36
-      CricketShot     0.6154    0.1633    0.2581        49
- CuttingInKitchen     0.1905    0.1212    0.1481        33
+ApplyEyeMakeup     0.8627    1.0000    0.9263        44
+        Biking     0.7778    0.9211    0.8434        38
+  CleanAndJerk     0.6750    0.8182    0.7397        33
+  FrisbeeCatch     0.7955    0.9459    0.8642        37
+     HorseRace     0.8500    0.9714    0.9067        35
+      LongJump     0.8438    0.6923    0.7606        39
+   PlayingDhol     0.8889    0.6531    0.7529        49
+         Punch     1.0000    0.7692    0.8696        39
+        Skiing     0.8000    0.9000    0.8471        40
+        TaiChi     0.5263    0.3571    0.4255        28
 
-         accuracy                         0.2492       951
-        macro avg     0.4627    0.2505    0.2547       951
-     weighted avg     0.4827    0.2492    0.2584       951
-
+      accuracy                         0.8115       382
+     macro avg     0.8020    0.8028    0.7936       382
+  weighted avg     0.8146    0.8115    0.8042       382
 ```
