@@ -8,7 +8,7 @@ import imageio
 from tqdm import tqdm
 from vaik_video_classification_pb_inference.pb_model import PbModel
 
-def main(input_saved_model_dir_path, input_classes_path, input_video_dir_path, output_json_dir_path):
+def main(skip_frame, input_saved_model_dir_path, input_classes_path, input_video_dir_path, output_json_dir_path):
     os.makedirs(output_json_dir_path, exist_ok=True)
     with open(input_classes_path, 'r') as f:
         classes = f.readlines()
@@ -26,7 +26,7 @@ def main(input_saved_model_dir_path, input_classes_path, input_video_dir_path, o
         video = imageio.get_reader(video_path,  'ffmpeg')
         # inference
         start = time.time()
-        output, raw_pred = model.inference([frame for frame in video])
+        output, raw_pred = model.inference([frame for frame in video][::skip_frame])
         end = time.time()
         total_inference_time += (end - start)
         # dump
@@ -42,6 +42,7 @@ def main(input_saved_model_dir_path, input_classes_path, input_video_dir_path, o
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
+    parser.add_argument('--skip_frame', type=int, default=1)
     parser.add_argument('--input_saved_model_dir_path', type=str, default='~/.vaik-video-classification-pb-trainer/output_model/2023-07-05-15-31-31/step-1000_batch-8_epoch-6_loss_0.0868_sparse_categorical_accuracy_0.9730_val_loss_1.9645_val_sparse_categorical_accuracy_0.6660')
     parser.add_argument('--input_classes_path', type=str, default='~/.vaik-utc101-video-classification-dataset/sub_ucf101_labels.txt')
     parser.add_argument('--input_video_dir_path', type=str, default='~/.vaik-utc101-video-classification-dataset/test')
