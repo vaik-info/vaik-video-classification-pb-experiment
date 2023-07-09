@@ -12,7 +12,8 @@ pip install -r requirements.txt
 ### Create json file
 
 ```shell
-python inference.py --input_saved_model_dir_path '~/.vaik-video-classification-pb-trainer/output_model/2023-07-05-10-34-29/step-1000_batch-8_epoch-10_loss_0.5479_sparse_categorical_accuracy_0.8443_val_loss_1.7989_val_sparse_categorical_accuracy_0.5060' \
+python inference.py --skip_frame 8 \
+                --input_saved_model_dir_path '~/.vaik-video-classification-pb-trainer/output_model/2023-07-05-10-34-29/step-1000_batch-8_epoch-10_loss_0.5479_sparse_categorical_accuracy_0.8443_val_loss_1.7989_val_sparse_categorical_accuracy_0.5060' \
                 --input_classes_path '~/.vaik-utc101-video-classification-dataset_tfrecords/train/ucf101_labels.txt' \
                 --input_video_dir_path '~/.vaik-utc101-video-classification-dataset/test' \
                 --output_json_dir_path '~/.vaik-video-classification-pb-experiment/test_inf'
