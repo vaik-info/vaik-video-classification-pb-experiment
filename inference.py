@@ -24,9 +24,10 @@ def main(skip_frame, input_saved_model_dir_path, input_classes_path, input_video
     for video_path in tqdm(video_path_list):
         # read
         video = imageio.get_reader(video_path,  'ffmpeg')
+        frames = [frame for frame in video][::skip_frame]
         # inference
         start = time.time()
-        output, raw_pred = model.inference([frame for frame in video][::skip_frame])
+        output, raw_pred = model.inference(frames)
         end = time.time()
         total_inference_time += (end - start)
         # dump
