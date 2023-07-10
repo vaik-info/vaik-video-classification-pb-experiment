@@ -22,6 +22,9 @@ def main(skip_frame, input_saved_model_dir_path, input_classes_path, input_video
         video_path_list.extend(glob.glob(os.path.join(input_video_dir_path, '*', files), recursive=True))
     total_inference_time = 0
     total_frames_num = 0
+
+    model.inference([frame for frame in imageio.get_reader(video_path_list[0],  'ffmpeg')][::skip_frame])
+
     for video_path in tqdm(video_path_list):
         # read
         video = imageio.get_reader(video_path,  'ffmpeg')
