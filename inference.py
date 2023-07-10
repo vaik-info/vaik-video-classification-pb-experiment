@@ -45,7 +45,7 @@ def main(skip_frame, input_saved_model_dir_path, input_classes_path, input_video
         with open(output_json_path, 'w') as f:
             json.dump(output_dict, f, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
     print(f'{len(video_path_list)/total_inference_time}[videos/sec]')
-    print(f'{len(video_path_list)/total_frames_num}[frame/sec]')
+    print(f'{total_frames_num/total_inference_time}[frame/sec]')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
